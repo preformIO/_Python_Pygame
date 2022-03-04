@@ -2,11 +2,14 @@
 # -*- coding: utf-8 -*-
  
 # Módulos | imports
+import sys
 import pygame
 from pygame.locals import *
 
 # Constantes | constants declarations
- 
+WIDTH = 640
+HEIGHT = 480
+
 # Clases | local classes
 # ---------------------------------------------------------------------
  
@@ -20,7 +23,20 @@ from pygame.locals import *
 # Funcion principal | main function definition
 # --------------------------------------------------------------------- 
 def main():
-    print("Hello World!")
+    # Crear una ventana | create window
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption("Pruebas Pygame | Pygame Tutorial")
+
+    # Mantener ventana abierta | keep window open
+    while True:
+
+        # Si queremos cerrar la ventana, deje de ejecutarse | exit on window quit
+        for eventos in pygame.event.get():
+            if eventos.type == QUIT:
+                sys.exit(0)
+                pass
+            pass
+        pass
     
     return 0
     pass
