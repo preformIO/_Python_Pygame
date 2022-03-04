@@ -1,16 +1,36 @@
-# imports
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+ 
+# Módulos | imports
+ 
+# Constantes | constants declarations
+ 
+# Clases | local classes
+# ---------------------------------------------------------------------
+ 
+# ---------------------------------------------------------------------
+ 
+# Funciones | local functions
+# ---------------------------------------------------------------------
+ 
+# ---------------------------------------------------------------------
+
+# Funcion principal | main function definition
+# --------------------------------------------------------------------- 
+def main():
+    print("Hello World!")
+    
+    return 0
+    pass
+# ---------------------------------------------------------------------
 
 
-# property declarations
-
-
-# helper functions
-
-
-# main function that is run at end of file to launch program
-def main ():
-  print("Hello World!")
-  
-  pass
-
-main()
+# Ejecutar solo si se ejecuta como aplicación principal 
+# --
+# Only execute if fun as main application
+# ---------------------------------------------------------------------
+if __name__ == '__main__':
+    main()
+    
+    pass
+# ---------------------------------------------------------------------
