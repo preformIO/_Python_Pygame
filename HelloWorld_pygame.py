@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
  
 # Módulos | imports
- 
+import pygame
+from pygame.locals import *
+
 # Constantes | constants declarations
  
 # Clases | local classes
@@ -30,6 +32,7 @@ def main():
 # Only execute if fun as main application
 # ---------------------------------------------------------------------
 if __name__ == '__main__':
+    pygame.init()
     main()
     
     pass
