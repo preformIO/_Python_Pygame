@@ -5,6 +5,7 @@ import sys
 import keyboard
 import pygame
 from pygame.locals import *
+from sympy import Point, pi, sin, cos
 
 # Constantes | constants declarations
 WIDTH = 640
@@ -20,7 +21,72 @@ render_i = None # gets incremented every draw loop
  
 # Funciones | local functions
 # ---------------------------------------------------------------------
+# draw white circle at 100, 240 with radius of 25
+def drawCircle():
+    # set up position veriables
+    circ_pos = Point(100, 240)
+    circ_radius = 25
 
+    # draw circle
+    color = Color(255, 255, 255)
+    stroke = 0 # with 0 stroke, circle will be filled
+    pygame.draw.circle(win_sfc, color, circ_pos, circ_radius, stroke)
+
+    pass
+
+# draw white circle outline at 175, 240 with radius of 25, stroke of 3
+def drawCircleOutline():
+    # set up position variables
+    circ_pos = Point(175, 240)
+    circ_radius = 25
+
+    # draw circle outline
+    color = Color(255, 255, 255)
+    stroke = 3
+    pygame.draw.circle(win_sfc, color, circ_pos, circ_radius, stroke)
+
+    pass
+
+# draw a red 3/4-circle arc from pi/2 to 2pi with stroke of 5
+def drawArc():
+    # set up position variables
+    arc_pos = Point(275, 240)
+    arc_radius_x = 50
+    arc_radius_y = 25
+    arc_rect = Rect(
+        arc_pos.x - arc_radius_x, 
+        arc_pos.y - arc_radius_y, 
+        arc_radius_x * 2, 
+        arc_radius_y * 2,
+    )
+    arc_start = pi / 2
+    arc_end = 2*pi 
+
+    # draw arc
+    stroke = 5
+    color = Color(255, 0, 0)
+    pygame.draw.arc(win_sfc, color, arc_rect, arc_start, arc_end, stroke)
+
+    pass    
+
+# draw a solid black rectangle with a blue-gray outline
+def drawRectangle():
+    # set up position variables
+    rect_pos = Point(350, 215)
+    rect_width = 150
+    rect_height = 50
+    rect = Rect(rect_pos.x, rect_pos.y, rect_width, rect_height)
+
+    # draw solid rectangle
+    color = Color(0, 0, 0)
+    pygame.draw.rect(win_sfc, color, rect)
+    
+    # draw rect outline
+    color = Color(63, 63, 127)
+    stroke = 5
+    pygame.draw.rect(win_sfc, color, rect, width = stroke)
+
+    pass    
 # ---------------------------------------------------------------------
  
 # Funcion principal | main function definition
@@ -42,8 +108,12 @@ def main():
         # draw elements
         # -------------
         # clear background with dark grey
-        win_sfc.fill((15, 15, 15))
-        # draw other elements below this line
+        win_sfc.fill((63, 63, 63))
+        # draw foreground elements on top of background
+        drawCircle()
+        drawCircleOutline()
+        drawArc()
+        drawRectangle()
 
         # update display (must be done every render loop)
         # ----------
