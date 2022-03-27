@@ -21,7 +21,7 @@ render_i = None # gets incremented every draw loop
  
 # Funciones | local functions
 # ---------------------------------------------------------------------
-# draw white circle at 100, 240 with radius of 25
+# draw white circle with radius of 25
 def drawCircle():
     # set up position veriables
     circ_pos = Point(100, 240)
@@ -34,7 +34,7 @@ def drawCircle():
 
     pass
 
-# draw white circle outline at 175, 240 with radius of 25, stroke of 3
+# draw white circle outline  with radius of 25, stroke of 3
 def drawCircleOutline():
     # set up position variables
     circ_pos = Point(175, 240)
