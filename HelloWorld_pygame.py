@@ -8,7 +8,7 @@ from sympy import Point, pi, sin, cos
 # Constantes | constants declarations
 WIDTH = 640
 HEIGHT = 480
-FRAME_RATE = 30
+FRAMES_PER_SECOND = 30 
 
 # Variables Globales | global variables
 win_sfc = None # initialize global for testing drawing on game surface
@@ -118,7 +118,7 @@ def main():
         # update display (must be done every render loop)
         # ----------
         pygame.display.update()
-        pygame.time.delay(1000//FRAME_RATE) # wait fraction of a second betwen updates
+        pygame.time.delay(1000//FRAMES_PER_SECOND) # wait fraction of a second betwen updates
 
         # increment render count
         # ----------
