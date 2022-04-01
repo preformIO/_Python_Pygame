@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
- 
 # Módulos | imports
 import sys
 import keyboard
