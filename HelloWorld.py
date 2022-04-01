@@ -1,6 +1,8 @@
 # Módulos | imports
  
 # Constantes | constants declarations
+
+# Variables Globales | global variables
  
 # Clases | local classes
 # ---------------------------------------------------------------------
