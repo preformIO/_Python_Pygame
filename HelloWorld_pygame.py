@@ -84,7 +84,7 @@ def drawRectangle():
     # draw rect outline
     color = Color(63, 63, 127)
     stroke = 5
-    pygame.draw.rect(win_sfc, color, rect, width = stroke)
+    pygame.draw.rect(win_sfc, color, rect, stroke)
 
     pass    
 # ---------------------------------------------------------------------
