@@ -1,5 +1,5 @@
 # Módulos | imports
- 
+
 # Constantes | constants declarations
 
 # Variables Globales | global variables
@@ -25,7 +25,7 @@ def main():
 
 # Ejecutar solo si se ejecuta como aplicación principal 
 # --
-# Only execute if fun as main application
+# Only execute if run as main application
 # ---------------------------------------------------------------------
 if __name__ == '__main__':
     main()
