@@ -124,22 +124,41 @@ def main():
         # ----------
         render_i = render_i + 1
 
-        # handle window quit event
+        # handle events
         # ----------
-        for eventos in pygame.event.get():
-            if eventos.type == QUIT:
+        for evento in pygame.event.get():
+            
+            # window quit event
+            if evento.type == QUIT:
                 sys.exit(0)
+                pass
+
+            # keyboard input
+            if evento.type == pygame.KEYDOWN or evento.type == pygame.KEYUP:
+                print(f'Key event captures for key = "{evento.key}"')
+                
+                if evento.mod == pygame.KMOD_NONE:
+                    print('No modifier keys were in a pressed state when this '
+                        'event occurred.')
+                else:
+                    if evento.mod & pygame.KMOD_LSHIFT:
+                        print('Left shift was in a pressed state when this event '
+                            'occurred.')
+                    if evento.mod & pygame.KMOD_RSHIFT:
+                        print('Right shift was in a pressed state when this event '
+                            'occurred.')
+                    if evento.mod & pygame.KMOD_SHIFT:
+                        print('Left shift or right shift or both were in a '
+                            'pressed state when this event occurred.')            
+                        pass
+                    pass
                 pass
             pass
         pass
 
-        # handle keyboard input
+        # handle special keyboard inputs
         # ----------
         try:
-            # respond to "ENTER" presses
-            if keyboard.is_pressed('ENTER'):
-                print("\nyou pressed Enter..\n")
-                pass
             # quit exit on "Esc" pressed
             if keyboard.is_pressed('Esc'):
                 print("\nyou pressed Esc, so exiting...\n")
