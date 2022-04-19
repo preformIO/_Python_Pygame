@@ -1,25 +1,41 @@
 # Módulos | imports
+# ---------------------------------------------------------------------
+# region
 import sys
 import pygame
 from pygame.locals import *
 from sympy import Point, pi, sin, cos
+# endregion
+# ---------------------------------------------------------------------
 
 # Constantes | constants declarations
+# ---------------------------------------------------------------------
+# region
 WIDTH = 640
 HEIGHT = 480
 FRAMES_PER_SECOND = 30 
+# endregion
+# ---------------------------------------------------------------------
 
 # Variables Globales | global variables
+# ---------------------------------------------------------------------
+# region
 win_sfc = None # initialize global for testing drawing on game surface
 render_i = None # gets incremented every draw loop
+# endregion
+# ---------------------------------------------------------------------
  
 # Clases | local classes
 # ---------------------------------------------------------------------
- 
+# region
+
+# endregion
 # ---------------------------------------------------------------------
  
 # Funciones | local functions
 # ---------------------------------------------------------------------
+# region
+
 # draw white circle with radius of 25
 def drawCircle():
     # set up position veriables
@@ -86,12 +102,16 @@ def drawRectangle():
     pygame.draw.rect(win_sfc, color, rect, stroke)
 
     pass    
+
+# endregion
 # ---------------------------------------------------------------------
  
 # Funcion principal | main function definition
 # --------------------------------------------------------------------- 
 def main():
     # Crear una ventana | create window
+    # -------------
+    # region
     pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Pruebas Pygame | Pygame Tutorial")
     # get instance of window surface and store in global "win_sfc"
@@ -99,13 +119,17 @@ def main():
     global win_sfc
     win_sfc = pygame.display.get_surface()
     print(f'Got reference to surface "{win_sfc}"')
+    # endregion#
+    # -------------
     
     # enter main draw / game loop
+    # -------------
     global render_i
     render_i = 0
     while True:
         # draw elements
         # -------------
+        # region
         # clear background with dark grey
         win_sfc.fill((63, 63, 63))
         # draw foreground elements on top of background
@@ -113,34 +137,28 @@ def main():
         drawCircleOutline()
         drawArc()
         drawRectangle()
+        # endregion
+        # -------------
 
         # update display (must be done every render loop)
         # ----------
         pygame.display.update()
         pygame.time.delay(1000//FRAMES_PER_SECOND) # wait fraction of a second betwen updates
+        # -------------
 
         # increment render count
         # ----------
         render_i = render_i + 1
+        # -------------
 
         # handle events
         # ----------
         for evento in pygame.event.get():
-            
             # keyboard input
             # ----------
             if evento.type == pygame.KEYDOWN or evento.type == pygame.KEYUP:
-                print(f'Key event captured for key named "{pygame.key.name(evento.key)}"')
-
-                # handle special keyboard inputs
-                # ----------
-                # quit exit on "Esc" pressed
-                if evento.key == pygame.K_ESCAPE:
-                    print("\nyou pressed ESCAPE, so exiting...\n")
-                    sys.exit(0)
-                    pass
-                # ----------
                 # handle modifier key presses
+                # ----------
                 if evento.mod == pygame.KMOD_NONE:
                     print('No modifier keys were in a pressed state when this '
                         'event occurred.')
@@ -156,16 +174,33 @@ def main():
                             'pressed state when this event occurred.')            
                         pass
                     pass
-                pass
+                # ----------
 
-            # window quit event
+                # handle general key presses
+                # ----------
+                print(f'Key event captured for key named "{pygame.key.name(evento.key)}"')
+                # ----------
+
+                # exit application on "Esc" pressed
+                # ----------
+                if evento.key == pygame.K_ESCAPE:
+                    print("\nyou pressed ESCAPE, so exiting...\n")
+                    sys.exit(0)
+                    pass
+                # ----------
+                pass
+            # -------------
+
+            # exit application on window quit event
             # ----------
             if evento.type == QUIT:
                 sys.exit(0)
                 pass
-
+            # -------------
             pass
+        # -------------
         pass
+    # -------------
 
     return 0
     pass
