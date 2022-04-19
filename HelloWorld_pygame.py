@@ -130,7 +130,7 @@ def main():
             # keyboard input
             # ----------
             if evento.type == pygame.KEYDOWN or evento.type == pygame.KEYUP:
-                print(f'Key event captures for key = "{pygame.key.name(evento.key)}"')
+                print(f'Key event captured for key named "{pygame.key.name(evento.key)}"')
 
                 # handle special keyboard inputs
                 # ----------
