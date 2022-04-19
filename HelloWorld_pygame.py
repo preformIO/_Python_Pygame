@@ -1,6 +1,5 @@
 # Módulos | imports
 import sys
-import keyboard
 import pygame
 from pygame.locals import *
 from sympy import Point, pi, sin, cos
@@ -128,15 +127,20 @@ def main():
         # ----------
         for evento in pygame.event.get():
             
-            # window quit event
-            if evento.type == QUIT:
-                sys.exit(0)
-                pass
-
             # keyboard input
+            # ----------
             if evento.type == pygame.KEYDOWN or evento.type == pygame.KEYUP:
-                print(f'Key event captures for key = "{evento.key}"')
-                
+                print(f'Key event captures for key = "{pygame.key.name(evento.key)}"')
+
+                # handle special keyboard inputs
+                # ----------
+                # quit exit on "Esc" pressed
+                if evento.key == pygame.K_ESCAPE:
+                    print("\nyou pressed ESCAPE, so exiting...\n")
+                    sys.exit(0)
+                    pass
+                # ----------
+                # handle modifier key presses
                 if evento.mod == pygame.KMOD_NONE:
                     print('No modifier keys were in a pressed state when this '
                         'event occurred.')
@@ -153,20 +157,15 @@ def main():
                         pass
                     pass
                 pass
-            pass
-        pass
 
-        # handle special keyboard inputs
-        # ----------
-        try:
-            # quit exit on "Esc" pressed
-            if keyboard.is_pressed('Esc'):
-                print("\nyou pressed Esc, so exiting...\n")
+            # window quit event
+            # ----------
+            if evento.type == QUIT:
                 sys.exit(0)
                 pass
+
             pass
-        except:
-            break
+        pass
 
     return 0
     pass
